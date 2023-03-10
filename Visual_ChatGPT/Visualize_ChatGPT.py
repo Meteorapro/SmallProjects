@@ -1,5 +1,5 @@
 from pyecharts import options as opts
-from pyecharts.charts import Sankey,TreeMap,Tab,Line
+from pyecharts.charts import Sankey,TreeMap,Tab,Line,Grid
 from pyecharts.globals import ThemeType
 
 
@@ -26,7 +26,7 @@ def History(width,height):
     ]
 
     c = (
-        Sankey(init_opts=opts.InitOpts(width=width,height=height,theme=ThemeType.WALDEN))
+        Sankey(init_opts=opts.InitOpts(theme=ThemeType.WALDEN))
         .add(
             # 图例标识
             "History",
@@ -34,12 +34,6 @@ def History(width,height):
             nodes,
             # 便签之间的对应关系
             links,
-
-            # # 设置距离容器四周的距离，左右上下
-            # pos_left='20%',
-            # pos_right='20%',
-            # pos_top='5%',
-            # pos_bottom='20%',
 
             # 设置边框格式
             itemstyle_opts=opts.ItemStyleOpts(border_color='#ffffff'),
@@ -55,74 +49,31 @@ def History(width,height):
             tooltip_opts=opts.TooltipOpts(is_show_content=False),
             # 标题设置
             title_opts=opts.TitleOpts(title="ChatGPT",title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
+            # 右上角贴图
+            graphic_opts=[
+                opts.GraphicImage(
+                    graphic_item=opts.GraphicItem(
+                        id_="logo", right=20, top=20, z=-10, bounding="raw", origin=[75, 75]
+                    ),
+                    graphic_imagestyle_opts=opts.GraphicImageStyleOpts(
+                        image="ChatGPT.png",
+                        width=100,
+                        height=100,
+                        opacity=0.4,
+                    ),
+                )
+            ],
             # 工具箱功能是否显示
             toolbox_opts=opts.ToolboxOpts(is_show=True),
             # 图例设置
             legend_opts=opts.LegendOpts(textstyle_opts=opts.TextStyleOpts(font_size=20))
         )
     )
-    return c
-
-def Character(width,height):
-    # 所使用的数据
-    data = [
-        # ChatGPT特点
-        {
-            "value": 40,
-            "name": "ChatGPT特点",
-            "children":[
-             {"value": 4, "name": "敢于质疑"},
-             {"value": 4, "name": "支持连续多轮对话"},
-             {"value": 4, "name": "大幅度提升准确性"},
-             {"value": 4, "name": "支持上下文理解"},
-             {"value": 4, "name": "承认无知"},
-             {"value": 4, "name": "主动承认错误"},
-             {"value": 8, "name": "大幅度提升了对用户意图的理解"},]
-        },
-        # ChatGPT使用的技术
-        {
-            "value": 40,
-            "name": "ChatGPT使用的技术",
-            "children": [
-                {"value": 40, "name": "Transformer",},
-                {"value": 40, "name": "RLHP（人类反馈强化学习）", },
-                {"value": 40, "name": "TAMER框架（评估式强化人工训练代理）", },
-            ],
-        },
-        # GPT家族所使用的参数量
-        {
-            "value": 40,
-            "name": "ChatGPT可以完成的任务",
-            "children": [
-                {"value": 24, "name": "翻译文献"},
-                {"value": 48, "name": "写小说文章商业文案"},
-                {"value": 24, "name": "评价作业"},
-                {"value": 24, "name": "做题目"},
-                {"value": 24, "name": "写代码"},
-                {"value": 24, "name": "给出解决方案"},
-            ],
-        },
-    ]
-
     c = (
-        TreeMap(init_opts=opts.InitOpts(width=width,height=height))
-        .add(series_name="ChatGPT相关",
-             leaf_depth=1,
-             data=data,
-
-             )
-        .set_series_opts(
-            opts.TextStyleOpts(font_size=25),)
-        .set_global_opts(
-            # 浮动提示框设置
-            tooltip_opts=opts.TooltipOpts(is_show_content=False),
-            # 标题设置
-            title_opts=opts.TitleOpts(title="ChatGPT",pos_left="leafDepth",
-                                    title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
-            # 工具箱功能是否显示
-            toolbox_opts=opts.ToolboxOpts(is_show=True),
-            # 图例设置
-            legend_opts=opts.LegendOpts(textstyle_opts=opts.TextStyleOpts(font_size=20))
+        Grid(init_opts=opts.InitOpts(width=width,height=height))
+        .add(
+            chart=c,
+            grid_opts=opts.GridOpts(pos_left="5%", pos_right="4%", pos_bottom="5%"),
         )
     )
     return c
@@ -136,8 +87,7 @@ def Parameters(width,height):
     y_data_3=[5,40,46000,92000]
 
     c=(
-        Line(init_opts=opts.InitOpts(width=width,height=height))
-
+        Line()
         .add_xaxis(xaxis_data=x_data)
         .extend_axis(
             yaxis=opts.AxisOpts(
@@ -191,10 +141,121 @@ def Parameters(width,height):
                 axislabel_opts=opts.LabelOpts(formatter="{value} 层")
             ),
             xaxis_opts=opts.AxisOpts(type_="category", boundary_gap=False),
+            # 右上角贴图
+            graphic_opts=[
+                opts.GraphicImage(
+                    graphic_item=opts.GraphicItem(
+                        id_="logo", right=20, top=20, z=-10, bounding="raw", origin=[75, 75]
+                    ),
+                    graphic_imagestyle_opts=opts.GraphicImageStyleOpts(
+                        image="ChatGPT.png",
+                        width=100,
+                        height=100,
+                        opacity=0.4,
+                    ),
+                )
+            ],
             # 工具箱功能是否显示
             toolbox_opts=opts.ToolboxOpts(is_show=True),
             # 图例设置
             legend_opts=opts.LegendOpts(textstyle_opts=opts.TextStyleOpts(font_size=20))
+        )
+    )
+    c = (
+        Grid(init_opts=opts.InitOpts(width=width,height=height))
+        .add(
+            chart=c,
+            grid_opts=opts.GridOpts(pos_left="5%", pos_right="4%", pos_bottom="5%"),
+        )
+    )
+
+    return c
+
+def Character(width,height):
+    # 所使用的数据
+    data = [
+        # ChatGPT特点
+        {
+            "value": 40,
+            "name": "ChatGPT特点",
+            "children":[
+             {"value": 4, "name": "敢于质疑"},
+             {"value": 4, "name": "支持连续多轮对话"},
+             {"value": 4, "name": "大幅度提升准确性"},
+             {"value": 4, "name": "支持上下文理解"},
+             {"value": 4, "name": "承认无知"},
+             {"value": 4, "name": "主动承认错误"},
+             {"value": 8, "name": "大幅度提升了对用户意图的理解"},]
+        },
+        # ChatGPT使用的技术
+        {
+            "value": 40,
+            "name": "ChatGPT使用的技术",
+            "children": [
+                {"value": 40, "name": "Transformer",},
+                {"value": 40, "name": "RLHP（人类反馈强化学习）", },
+                {"value": 40, "name": "TAMER框架（评估式强化人工训练代理）", },
+            ],
+        },
+        # GPT家族所使用的参数量
+        {
+            "value": 40,
+            "name": "ChatGPT可以完成的任务",
+            "children": [
+                {"value": 24, "name": "协助客服"},
+                {"value": 48, "name": "聊天机器人"},
+                {"value": 24, "name": "自动写作"},
+                {"value": 24, "name": "智能推荐"},
+                {"value": 24, "name": "语音交互"},
+                {"value": 24, "name": "语言翻译"},
+                {"value": 24, "name": "智能搜索"},
+                {"value": 24, "name": "决策支持"},
+                {"value": 24, "name": "智能诊断"},
+                {"value": 24, "name": "分析预测"},
+                {"value": 24, "name": "数据挖掘"},
+            ],
+        },
+    ]
+
+    c = (
+        TreeMap()
+        .add(series_name="ChatGPT相关",
+             leaf_depth=1,
+             data=data,
+             )
+        .set_series_opts(
+            opts.TextStyleOpts(font_size=25),)
+        .set_global_opts(
+            # 浮动提示框设置
+            tooltip_opts=opts.TooltipOpts(is_show_content=False),
+            # 标题设置
+            title_opts=opts.TitleOpts(title="ChatGPT",pos_left="leafDepth",
+                                    title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
+            # 右上角贴图
+            graphic_opts=[
+                opts.GraphicImage(
+                    graphic_item=opts.GraphicItem(
+                        id_="logo", right=20, top=20, z=-10, bounding="raw", origin=[75, 75]
+                    ),
+                    graphic_imagestyle_opts=opts.GraphicImageStyleOpts(
+                        image="ChatGPT.png",
+                        width=100,
+                        height=100,
+                        opacity=0.4,
+                    ),
+                )
+            ],
+            # 工具箱功能是否显示
+            toolbox_opts=opts.ToolboxOpts(is_show=True),
+            # 图例设置
+            legend_opts=opts.LegendOpts(textstyle_opts=opts.TextStyleOpts(font_size=20))
+        )
+    )
+    c = (
+        Grid(init_opts=opts.InitOpts(width=width,height=height))
+        .add(
+            chart=c,
+            grid_opts=opts.GridOpts(pos_left="5%", pos_right="4%", pos_bottom="5%"),
         )
     )
     return c
@@ -224,7 +285,7 @@ def BadBenifits(width,height):
         ],},
     ]
     c = (
-        TreeMap(init_opts=opts.InitOpts(width=width,height=height,theme=ThemeType.INFOGRAPHIC))
+        TreeMap(init_opts=opts.InitOpts(theme=ThemeType.INFOGRAPHIC))
         .add(series_name="ChatGPT优缺点",
              leaf_depth=1,
              data=data,
@@ -238,10 +299,31 @@ def BadBenifits(width,height):
             # 标题设置
             title_opts=opts.TitleOpts(title="ChatGPT",pos_left="leafDepth",
                                   title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
+            # 右上角贴图
+            graphic_opts=[
+                opts.GraphicImage(
+                    graphic_item=opts.GraphicItem(
+                        id_="logo", right=20, top=20, z=-10, bounding="raw", origin=[75, 75]
+                    ),
+                    graphic_imagestyle_opts=opts.GraphicImageStyleOpts(
+                        image="ChatGPT.png",
+                        width=100,
+                        height=100,
+                        opacity=0.4,
+                    ),
+                )
+            ],
             # 工具箱功能是否显示
             toolbox_opts=opts.ToolboxOpts(is_show=True),
             # 图例设置
             legend_opts=opts.LegendOpts(textstyle_opts=opts.TextStyleOpts(font_size=20))
+        )
+    )
+    c = (
+        Grid(init_opts=opts.InitOpts(width=width,height=height))
+        .add(
+            chart=c,
+            grid_opts=opts.GridOpts(pos_left="5%", pos_right="4%", pos_bottom="5%"),
         )
     )
     return c
@@ -250,8 +332,8 @@ def BadBenifits(width,height):
 tab=Tab(page_title='ChatGPT')
 width="1600px"
 height="900px"
-# tab.add(History(width,height),'ChatGPT的演化历史')
+tab.add(History(width,height),'ChatGPT的演化历史')
 tab.add(Parameters(width,height),'GPT家族的参数演化')
-# tab.add(Character(width,height),'ChatGPT的功能及其特征')
-# tab.add(BadBenifits(width,height),'ChatGPT的优劣势')
+tab.add(Character(width,height),'ChatGPT的功能及其特征')
+tab.add(BadBenifits(width,height),'ChatGPT的优劣势')
 tab.render('Visualize_ChatGPT.html')

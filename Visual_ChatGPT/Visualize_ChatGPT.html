@@ -40,15 +40,307 @@
         }
     </style>
     <div class="tab">
-            <button class="tablinks" onclick="showChart(event, 'c780c3d96c704f998626ae7c5ca4dd4e')">GPT家族的参数演化</button>
+            <button class="tablinks" onclick="showChart(event, '508c22addd7b489c957f91a95e6ecfd5')">ChatGPT的演化历史</button>
+            <button class="tablinks" onclick="showChart(event, '5f1cf1ea24cb46588a653103ac3d3b37')">GPT家族的参数演化</button>
+            <button class="tablinks" onclick="showChart(event, 'fa2077a75c764dea9ad0d8966e523070')">ChatGPT的功能及其特征</button>
+            <button class="tablinks" onclick="showChart(event, 'da2efe04d99a419093601816b6aae647')">ChatGPT的优劣势</button>
     </div>
 
     <div class="box">
-                <div id="c780c3d96c704f998626ae7c5ca4dd4e" class="chart-container" style="width:1600px; height:900px;"></div>
+                <div id="508c22addd7b489c957f91a95e6ecfd5" class="chart-container" style="width:1600px; height:900px;"></div>
     <script>
-        var chart_c780c3d96c704f998626ae7c5ca4dd4e = echarts.init(
-            document.getElementById('c780c3d96c704f998626ae7c5ca4dd4e'), 'white', {renderer: 'canvas'});
-        var option_c780c3d96c704f998626ae7c5ca4dd4e = {
+        var chart_508c22addd7b489c957f91a95e6ecfd5 = echarts.init(
+            document.getElementById('508c22addd7b489c957f91a95e6ecfd5'), 'white', {renderer: 'canvas'});
+        var option_508c22addd7b489c957f91a95e6ecfd5 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "sankey",
+            "name": "History",
+            "data": [
+                {
+                    "name": "GPT-1(2018)",
+                    "depth": 0
+                },
+                {
+                    "name": "More Parameters",
+                    "depth": 0
+                },
+                {
+                    "name": "GPT-2(2019)",
+                    "depth": 1
+                },
+                {
+                    "name": "GPT-3(2020)",
+                    "depth": 2
+                },
+                {
+                    "name": "ChatGPT(2022)",
+                    "depth": 3
+                },
+                {
+                    "name": "RLHF",
+                    "depth": 2
+                },
+                {
+                    "name": "TAMER",
+                    "depth": 2
+                }
+            ],
+            "links": [
+                {
+                    "source": "GPT-1(2018)",
+                    "target": "GPT-2(2019)",
+                    "value": 3
+                },
+                {
+                    "source": "More Parameters",
+                    "target": "GPT-2(2019)",
+                    "value": 1
+                },
+                {
+                    "source": "GPT-2(2019)",
+                    "target": "GPT-3(2020)",
+                    "value": 4
+                },
+                {
+                    "source": "More Parameters",
+                    "target": "GPT-3(2020)",
+                    "value": 1
+                },
+                {
+                    "source": "GPT-3(2020)",
+                    "target": "ChatGPT(2022)",
+                    "value": 5
+                },
+                {
+                    "source": "RLHF",
+                    "target": "ChatGPT(2022)",
+                    "value": 1
+                },
+                {
+                    "source": "TAMER",
+                    "target": "ChatGPT(2022)",
+                    "value": 1
+                }
+            ],
+            "left": "5%",
+            "top": "5%",
+            "right": "20%",
+            "bottom": "5%",
+            "nodeWidth": 20,
+            "nodeGap": 8,
+            "nodeAlign": "justify",
+            "layoutIteration": 32,
+            "orient": "horizontal",
+            "draggable": true,
+            "focusNodeAdjacency": false,
+            "label": {
+                "fontSize": 16
+            },
+            "lineStyle": {
+                "show": true,
+                "width": 1,
+                "opacity": 0.2,
+                "curveness": 0.5,
+                "type": "solid",
+                "color": "source"
+            },
+            "itemStyle": {
+                "borderColor": "#ffffff"
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "xAxisIndex": 0,
+            "yAxisIndex": 0
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "History"
+            ],
+            "selected": {
+                "History": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "fontSize": 20
+            }
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": false,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "ChatGPT",
+            "padding": 5,
+            "itemGap": 10,
+            "textStyle": {
+                "fontSize": 30
+            }
+        }
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "title": "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+                "pixelRatio": 1
+            },
+            "restore": {
+                "show": true,
+                "title": "\u8fd8\u539f"
+            },
+            "dataView": {
+                "show": true,
+                "title": "\u6570\u636e\u89c6\u56fe",
+                "readOnly": false,
+                "lang": [
+                    "\u6570\u636e\u89c6\u56fe",
+                    "\u5173\u95ed",
+                    "\u5237\u65b0"
+                ],
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "\u533a\u57df\u7f29\u653e",
+                    "back": "\u533a\u57df\u7f29\u653e\u8fd8\u539f"
+                },
+                "icon": {},
+                "xAxisIndex": false,
+                "yAxisIndex": false,
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {
+                    "line": "\u5207\u6362\u4e3a\u6298\u7ebf\u56fe",
+                    "bar": "\u5207\u6362\u4e3a\u67f1\u72b6\u56fe",
+                    "stack": "\u5207\u6362\u4e3a\u5806\u53e0",
+                    "tiled": "\u5207\u6362\u4e3a\u5e73\u94fa"
+                },
+                "icon": {}
+            },
+            "brush": {
+                "icon": {},
+                "title": {
+                    "rect": "\u77e9\u5f62\u9009\u62e9",
+                    "polygon": "\u5708\u9009",
+                    "lineX": "\u6a2a\u5411\u9009\u62e9",
+                    "lineY": "\u7eb5\u5411\u9009\u62e9",
+                    "keep": "\u4fdd\u6301\u9009\u62e9",
+                    "clear": "\u6e05\u9664\u9009\u62e9"
+                }
+            }
+        }
+    },
+    "graphic": [
+        {
+            "type": "image",
+            "id": "logo",
+            "$action": "merge",
+            "rotation": 0,
+            "origin": [
+                75,
+                75
+            ],
+            "right": 20,
+            "top": 20,
+            "bounding": "raw",
+            "z": -10,
+            "zlevel": 0,
+            "silent": false,
+            "invisible": false,
+            "ignore": false,
+            "cursor": "pointer",
+            "draggable": false,
+            "progressive": false,
+            "width": 0,
+            "height": 0,
+            "style": {
+                "image": "ChatGPT.png",
+                "x": 0,
+                "y": 0,
+                "width": 100,
+                "height": 100,
+                "opacity": 0.4
+            }
+        }
+    ],
+    "grid": [
+        {
+            "show": false,
+            "zlevel": 0,
+            "z": 2,
+            "left": "5%",
+            "right": "4%",
+            "bottom": "5%",
+            "containLabel": false,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1
+        }
+    ]
+};
+        chart_508c22addd7b489c957f91a95e6ecfd5.setOption(option_508c22addd7b489c957f91a95e6ecfd5);
+    </script>
+                <div id="5f1cf1ea24cb46588a653103ac3d3b37" class="chart-container" style="width:1600px; height:900px;"></div>
+    <script>
+        var chart_5f1cf1ea24cb46588a653103ac3d3b37 = echarts.init(
+            document.getElementById('5f1cf1ea24cb46588a653103ac3d3b37'), 'white', {renderer: 'canvas'});
+        var option_5f1cf1ea24cb46588a653103ac3d3b37 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -88,6 +380,8 @@
             "type": "line",
             "name": "Transformer\u5c42\u6570",
             "connectNulls": false,
+            "xAxisIndex": 0,
+            "yAxisIndex": 0,
             "symbolSize": 4,
             "showSymbol": true,
             "smooth": false,
@@ -139,7 +433,8 @@
             "type": "line",
             "name": "\u53c2\u6570\u91cf\uff08\u4ebf\uff09",
             "connectNulls": false,
-            "yAxisIndex": 1,
+            "xAxisIndex": 0,
+            "yAxisIndex": 0,
             "symbolSize": 4,
             "showSymbol": true,
             "smooth": false,
@@ -191,7 +486,8 @@
             "type": "line",
             "name": "\u9884\u8bad\u7ec3\u6570\u636e\u91cf\uff08GB\uff09",
             "connectNulls": false,
-            "yAxisIndex": 2,
+            "xAxisIndex": 0,
+            "yAxisIndex": 0,
             "symbolSize": 4,
             "showSymbol": true,
             "smooth": false,
@@ -488,9 +784,666 @@
                 }
             }
         }
-    }
+    },
+    "graphic": [
+        {
+            "type": "image",
+            "id": "logo",
+            "$action": "merge",
+            "rotation": 0,
+            "origin": [
+                75,
+                75
+            ],
+            "right": 20,
+            "top": 20,
+            "bounding": "raw",
+            "z": -10,
+            "zlevel": 0,
+            "silent": false,
+            "invisible": false,
+            "ignore": false,
+            "cursor": "pointer",
+            "draggable": false,
+            "progressive": false,
+            "width": 0,
+            "height": 0,
+            "style": {
+                "image": "ChatGPT.png",
+                "x": 0,
+                "y": 0,
+                "width": 100,
+                "height": 100,
+                "opacity": 0.4
+            }
+        }
+    ],
+    "grid": [
+        {
+            "show": false,
+            "zlevel": 0,
+            "z": 2,
+            "left": "5%",
+            "right": "4%",
+            "bottom": "5%",
+            "containLabel": false,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1
+        }
+    ]
 };
-        chart_c780c3d96c704f998626ae7c5ca4dd4e.setOption(option_c780c3d96c704f998626ae7c5ca4dd4e);
+        chart_5f1cf1ea24cb46588a653103ac3d3b37.setOption(option_5f1cf1ea24cb46588a653103ac3d3b37);
+    </script>
+                <div id="fa2077a75c764dea9ad0d8966e523070" class="chart-container" style="width:1600px; height:900px;"></div>
+    <script>
+        var chart_fa2077a75c764dea9ad0d8966e523070 = echarts.init(
+            document.getElementById('fa2077a75c764dea9ad0d8966e523070'), 'white', {renderer: 'canvas'});
+        var option_fa2077a75c764dea9ad0d8966e523070 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "treemap",
+            "name": "ChatGPT\u76f8\u5173",
+            "data": [
+                {
+                    "value": 40,
+                    "name": "ChatGPT\u7279\u70b9",
+                    "children": [
+                        {
+                            "value": 4,
+                            "name": "\u6562\u4e8e\u8d28\u7591"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u652f\u6301\u8fde\u7eed\u591a\u8f6e\u5bf9\u8bdd"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u5927\u5e45\u5ea6\u63d0\u5347\u51c6\u786e\u6027"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u652f\u6301\u4e0a\u4e0b\u6587\u7406\u89e3"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u627f\u8ba4\u65e0\u77e5"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u4e3b\u52a8\u627f\u8ba4\u9519\u8bef"
+                        },
+                        {
+                            "value": 8,
+                            "name": "\u5927\u5e45\u5ea6\u63d0\u5347\u4e86\u5bf9\u7528\u6237\u610f\u56fe\u7684\u7406\u89e3"
+                        }
+                    ]
+                },
+                {
+                    "value": 40,
+                    "name": "ChatGPT\u4f7f\u7528\u7684\u6280\u672f",
+                    "children": [
+                        {
+                            "value": 40,
+                            "name": "Transformer"
+                        },
+                        {
+                            "value": 40,
+                            "name": "RLHP\uff08\u4eba\u7c7b\u53cd\u9988\u5f3a\u5316\u5b66\u4e60\uff09"
+                        },
+                        {
+                            "value": 40,
+                            "name": "TAMER\u6846\u67b6\uff08\u8bc4\u4f30\u5f0f\u5f3a\u5316\u4eba\u5de5\u8bad\u7ec3\u4ee3\u7406\uff09"
+                        }
+                    ]
+                },
+                {
+                    "value": 40,
+                    "name": "ChatGPT\u53ef\u4ee5\u5b8c\u6210\u7684\u4efb\u52a1",
+                    "children": [
+                        {
+                            "value": 24,
+                            "name": "\u534f\u52a9\u5ba2\u670d"
+                        },
+                        {
+                            "value": 48,
+                            "name": "\u804a\u5929\u673a\u5668\u4eba"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u81ea\u52a8\u5199\u4f5c"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u667a\u80fd\u63a8\u8350"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u8bed\u97f3\u4ea4\u4e92"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u8bed\u8a00\u7ffb\u8bd1"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u667a\u80fd\u641c\u7d22"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u51b3\u7b56\u652f\u6301"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u667a\u80fd\u8bca\u65ad"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u5206\u6790\u9884\u6d4b"
+                        },
+                        {
+                            "value": 24,
+                            "name": "\u6570\u636e\u6316\u6398"
+                        }
+                    ]
+                }
+            ],
+            "width": "80%",
+            "height": "80%",
+            "label": {
+                "fontSize": 25
+            },
+            "upperlabel": {
+                "show": true,
+                "position": "inside",
+                "margin": 8
+            },
+            "leafDepth": 1,
+            "drillDownIcon": "\u25b6",
+            "roam": true,
+            "nodeClick": "zoomToNode",
+            "zoomToNodeRatio": 0.1024,
+            "colorMappingBy": "index",
+            "visibleMin": 10,
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "xAxisIndex": 0,
+            "yAxisIndex": 0
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "ChatGPT\u76f8\u5173"
+            ],
+            "selected": {
+                "ChatGPT\u76f8\u5173": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "fontSize": 20
+            }
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": false,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "ChatGPT",
+            "left": "leafDepth",
+            "padding": 5,
+            "itemGap": 10,
+            "textStyle": {
+                "fontSize": 30
+            }
+        }
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "title": "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+                "pixelRatio": 1
+            },
+            "restore": {
+                "show": true,
+                "title": "\u8fd8\u539f"
+            },
+            "dataView": {
+                "show": true,
+                "title": "\u6570\u636e\u89c6\u56fe",
+                "readOnly": false,
+                "lang": [
+                    "\u6570\u636e\u89c6\u56fe",
+                    "\u5173\u95ed",
+                    "\u5237\u65b0"
+                ],
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "\u533a\u57df\u7f29\u653e",
+                    "back": "\u533a\u57df\u7f29\u653e\u8fd8\u539f"
+                },
+                "icon": {},
+                "xAxisIndex": false,
+                "yAxisIndex": false,
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {
+                    "line": "\u5207\u6362\u4e3a\u6298\u7ebf\u56fe",
+                    "bar": "\u5207\u6362\u4e3a\u67f1\u72b6\u56fe",
+                    "stack": "\u5207\u6362\u4e3a\u5806\u53e0",
+                    "tiled": "\u5207\u6362\u4e3a\u5e73\u94fa"
+                },
+                "icon": {}
+            },
+            "brush": {
+                "icon": {},
+                "title": {
+                    "rect": "\u77e9\u5f62\u9009\u62e9",
+                    "polygon": "\u5708\u9009",
+                    "lineX": "\u6a2a\u5411\u9009\u62e9",
+                    "lineY": "\u7eb5\u5411\u9009\u62e9",
+                    "keep": "\u4fdd\u6301\u9009\u62e9",
+                    "clear": "\u6e05\u9664\u9009\u62e9"
+                }
+            }
+        }
+    },
+    "graphic": [
+        {
+            "type": "image",
+            "id": "logo",
+            "$action": "merge",
+            "rotation": 0,
+            "origin": [
+                75,
+                75
+            ],
+            "right": 20,
+            "top": 20,
+            "bounding": "raw",
+            "z": -10,
+            "zlevel": 0,
+            "silent": false,
+            "invisible": false,
+            "ignore": false,
+            "cursor": "pointer",
+            "draggable": false,
+            "progressive": false,
+            "width": 0,
+            "height": 0,
+            "style": {
+                "image": "ChatGPT.png",
+                "x": 0,
+                "y": 0,
+                "width": 100,
+                "height": 100,
+                "opacity": 0.4
+            }
+        }
+    ],
+    "grid": [
+        {
+            "show": false,
+            "zlevel": 0,
+            "z": 2,
+            "left": "5%",
+            "right": "4%",
+            "bottom": "5%",
+            "containLabel": false,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1
+        }
+    ]
+};
+        chart_fa2077a75c764dea9ad0d8966e523070.setOption(option_fa2077a75c764dea9ad0d8966e523070);
+    </script>
+                <div id="da2efe04d99a419093601816b6aae647" class="chart-container" style="width:1600px; height:900px;"></div>
+    <script>
+        var chart_da2efe04d99a419093601816b6aae647 = echarts.init(
+            document.getElementById('da2efe04d99a419093601816b6aae647'), 'white', {renderer: 'canvas'});
+        var option_da2efe04d99a419093601816b6aae647 = {
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "series": [
+        {
+            "type": "treemap",
+            "name": "ChatGPT\u4f18\u7f3a\u70b9",
+            "data": [
+                {
+                    "value": 40,
+                    "name": "ChatGPT\u4f18\u70b9",
+                    "children": [
+                        {
+                            "value": 4,
+                            "name": "\u81ea\u7136\u8bed\u8a00\u751f\u6210\u80fd\u529b"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u591a\u6837\u6027"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u4e0a\u4e0b\u6587\u7406\u89e3"
+                        },
+                        {
+                            "value": 4,
+                            "name": "\u53ef\u6269\u5c55\u6027"
+                        }
+                    ]
+                },
+                {
+                    "value": 40,
+                    "name": "ChatGPT\u7f3a\u70b9",
+                    "children": [
+                        {
+                            "value": 40,
+                            "name": "\u6570\u636e\u504f\u5dee"
+                        },
+                        {
+                            "value": 40,
+                            "name": "\u9650\u5236"
+                        },
+                        {
+                            "value": 40,
+                            "name": "\u751f\u6210\u7684\u6587\u672c\u8d28\u91cf"
+                        },
+                        {
+                            "value": 40,
+                            "name": "\u5b89\u5168\u6027\u95ee\u9898"
+                        },
+                        {
+                            "value": 40,
+                            "name": "\u8ba1\u7b97\u4ee3\u4ef7"
+                        }
+                    ]
+                }
+            ],
+            "width": "80%",
+            "height": "80%",
+            "label": {
+                "fontSize": 25
+            },
+            "upperlabel": {
+                "show": true,
+                "position": "inside",
+                "margin": 8
+            },
+            "leafDepth": 1,
+            "drillDownIcon": "\u25b6",
+            "roam": true,
+            "nodeClick": "zoomToNode",
+            "zoomToNodeRatio": 0.1024,
+            "colorMappingBy": "index",
+            "visibleMin": 10,
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "xAxisIndex": 0,
+            "yAxisIndex": 0
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "ChatGPT\u4f18\u7f3a\u70b9"
+            ],
+            "selected": {
+                "ChatGPT\u4f18\u7f3a\u70b9": true
+            },
+            "show": true,
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "fontSize": 20
+            }
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": false,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "ChatGPT",
+            "left": "leafDepth",
+            "padding": 5,
+            "itemGap": 10,
+            "textStyle": {
+                "fontSize": 30
+            }
+        }
+    ],
+    "toolbox": {
+        "show": true,
+        "orient": "horizontal",
+        "itemSize": 15,
+        "itemGap": 10,
+        "left": "80%",
+        "feature": {
+            "saveAsImage": {
+                "type": "png",
+                "backgroundColor": "auto",
+                "connectedBackgroundColor": "#fff",
+                "show": true,
+                "title": "\u4fdd\u5b58\u4e3a\u56fe\u7247",
+                "pixelRatio": 1
+            },
+            "restore": {
+                "show": true,
+                "title": "\u8fd8\u539f"
+            },
+            "dataView": {
+                "show": true,
+                "title": "\u6570\u636e\u89c6\u56fe",
+                "readOnly": false,
+                "lang": [
+                    "\u6570\u636e\u89c6\u56fe",
+                    "\u5173\u95ed",
+                    "\u5237\u65b0"
+                ],
+                "backgroundColor": "#fff",
+                "textareaColor": "#fff",
+                "textareaBorderColor": "#333",
+                "textColor": "#000",
+                "buttonColor": "#c23531",
+                "buttonTextColor": "#fff"
+            },
+            "dataZoom": {
+                "show": true,
+                "title": {
+                    "zoom": "\u533a\u57df\u7f29\u653e",
+                    "back": "\u533a\u57df\u7f29\u653e\u8fd8\u539f"
+                },
+                "icon": {},
+                "xAxisIndex": false,
+                "yAxisIndex": false,
+                "filterMode": "filter"
+            },
+            "magicType": {
+                "show": true,
+                "type": [
+                    "line",
+                    "bar",
+                    "stack",
+                    "tiled"
+                ],
+                "title": {
+                    "line": "\u5207\u6362\u4e3a\u6298\u7ebf\u56fe",
+                    "bar": "\u5207\u6362\u4e3a\u67f1\u72b6\u56fe",
+                    "stack": "\u5207\u6362\u4e3a\u5806\u53e0",
+                    "tiled": "\u5207\u6362\u4e3a\u5e73\u94fa"
+                },
+                "icon": {}
+            },
+            "brush": {
+                "icon": {},
+                "title": {
+                    "rect": "\u77e9\u5f62\u9009\u62e9",
+                    "polygon": "\u5708\u9009",
+                    "lineX": "\u6a2a\u5411\u9009\u62e9",
+                    "lineY": "\u7eb5\u5411\u9009\u62e9",
+                    "keep": "\u4fdd\u6301\u9009\u62e9",
+                    "clear": "\u6e05\u9664\u9009\u62e9"
+                }
+            }
+        }
+    },
+    "graphic": [
+        {
+            "type": "image",
+            "id": "logo",
+            "$action": "merge",
+            "rotation": 0,
+            "origin": [
+                75,
+                75
+            ],
+            "right": 20,
+            "top": 20,
+            "bounding": "raw",
+            "z": -10,
+            "zlevel": 0,
+            "silent": false,
+            "invisible": false,
+            "ignore": false,
+            "cursor": "pointer",
+            "draggable": false,
+            "progressive": false,
+            "width": 0,
+            "height": 0,
+            "style": {
+                "image": "ChatGPT.png",
+                "x": 0,
+                "y": 0,
+                "width": 100,
+                "height": 100,
+                "opacity": 0.4
+            }
+        }
+    ],
+    "grid": [
+        {
+            "show": false,
+            "zlevel": 0,
+            "z": 2,
+            "left": "5%",
+            "right": "4%",
+            "bottom": "5%",
+            "containLabel": false,
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderWidth": 1
+        }
+    ]
+};
+        chart_da2efe04d99a419093601816b6aae647.setOption(option_da2efe04d99a419093601816b6aae647);
     </script>
     </div>
 
