@@ -40,18 +40,18 @@
         }
     </style>
     <div class="tab">
-            <button class="tablinks" onclick="showChart(event, '508c22addd7b489c957f91a95e6ecfd5')">ChatGPT的演化历史</button>
-            <button class="tablinks" onclick="showChart(event, '5f1cf1ea24cb46588a653103ac3d3b37')">GPT家族的参数演化</button>
-            <button class="tablinks" onclick="showChart(event, 'fa2077a75c764dea9ad0d8966e523070')">ChatGPT的功能及其特征</button>
-            <button class="tablinks" onclick="showChart(event, 'da2efe04d99a419093601816b6aae647')">ChatGPT的优劣势</button>
+            <button class="tablinks" onclick="showChart(event, 'ce8219ad99e347eaa1e71ce1330baf27')">ChatGPT的演化历史</button>
+            <button class="tablinks" onclick="showChart(event, '3168751e83bd4bb5bbe80ece2680780d')">GPT家族的参数演化</button>
+            <button class="tablinks" onclick="showChart(event, '658ff756983148da912fae3a22d7202b')">ChatGPT的功能及其特征</button>
+            <button class="tablinks" onclick="showChart(event, '96f845a59e02466d94752e890aa8f4ff')">ChatGPT的优劣势</button>
     </div>
 
     <div class="box">
-                <div id="508c22addd7b489c957f91a95e6ecfd5" class="chart-container" style="width:1600px; height:900px;"></div>
+                <div id="ce8219ad99e347eaa1e71ce1330baf27" class="chart-container" style="width:1600px; height:800px;"></div>
     <script>
-        var chart_508c22addd7b489c957f91a95e6ecfd5 = echarts.init(
-            document.getElementById('508c22addd7b489c957f91a95e6ecfd5'), 'white', {renderer: 'canvas'});
-        var option_508c22addd7b489c957f91a95e6ecfd5 = {
+        var chart_ce8219ad99e347eaa1e71ce1330baf27 = echarts.init(
+            document.getElementById('ce8219ad99e347eaa1e71ce1330baf27'), 'white', {renderer: 'canvas'});
+        var option_ce8219ad99e347eaa1e71ce1330baf27 = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -143,7 +143,7 @@
             "draggable": true,
             "focusNodeAdjacency": false,
             "label": {
-                "fontSize": 16
+                "fontSize": 20
             },
             "lineStyle": {
                 "show": true,
@@ -191,12 +191,13 @@
         "axisPointer": {
             "type": "line"
         },
-        "showContent": false,
+        "showContent": true,
         "alwaysShowContent": false,
         "showDelay": 0,
         "hideDelay": 100,
+        "formatter":         function(x){            return x.name        }    ,
         "textStyle": {
-            "fontSize": 14
+            "fontSize": 24
         },
         "borderWidth": 0,
         "padding": 5
@@ -334,13 +335,13 @@
         }
     ]
 };
-        chart_508c22addd7b489c957f91a95e6ecfd5.setOption(option_508c22addd7b489c957f91a95e6ecfd5);
+        chart_ce8219ad99e347eaa1e71ce1330baf27.setOption(option_ce8219ad99e347eaa1e71ce1330baf27);
     </script>
-                <div id="5f1cf1ea24cb46588a653103ac3d3b37" class="chart-container" style="width:1600px; height:900px;"></div>
+                <div id="3168751e83bd4bb5bbe80ece2680780d" class="chart-container" style="width:1600px; height:800px;"></div>
     <script>
-        var chart_5f1cf1ea24cb46588a653103ac3d3b37 = echarts.init(
-            document.getElementById('5f1cf1ea24cb46588a653103ac3d3b37'), 'white', {renderer: 'canvas'});
-        var option_5f1cf1ea24cb46588a653103ac3d3b37 = {
+        var chart_3168751e83bd4bb5bbe80ece2680780d = echarts.init(
+            document.getElementById('3168751e83bd4bb5bbe80ece2680780d'), 'white', {renderer: 'canvas'});
+        var option_3168751e83bd4bb5bbe80ece2680780d = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -833,13 +834,13 @@
         }
     ]
 };
-        chart_5f1cf1ea24cb46588a653103ac3d3b37.setOption(option_5f1cf1ea24cb46588a653103ac3d3b37);
+        chart_3168751e83bd4bb5bbe80ece2680780d.setOption(option_3168751e83bd4bb5bbe80ece2680780d);
     </script>
-                <div id="fa2077a75c764dea9ad0d8966e523070" class="chart-container" style="width:1600px; height:900px;"></div>
+                <div id="658ff756983148da912fae3a22d7202b" class="chart-container" style="width:1600px; height:800px;"></div>
     <script>
-        var chart_fa2077a75c764dea9ad0d8966e523070 = echarts.init(
-            document.getElementById('fa2077a75c764dea9ad0d8966e523070'), 'white', {renderer: 'canvas'});
-        var option_fa2077a75c764dea9ad0d8966e523070 = {
+        var chart_658ff756983148da912fae3a22d7202b = echarts.init(
+            document.getElementById('658ff756983148da912fae3a22d7202b'), 'white', {renderer: 'canvas'});
+        var option_658ff756983148da912fae3a22d7202b = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -1034,12 +1035,13 @@
         "axisPointer": {
             "type": "line"
         },
-        "showContent": false,
+        "showContent": true,
         "alwaysShowContent": false,
         "showDelay": 0,
         "hideDelay": 100,
+        "formatter":                 function(x){                    name=x.name;                    console.log(name);                    switch (name)                    {                        case 'ChatGPT\u7279\u70b9':                            return name+'<br>\u70b9\u51fb\u8be6\u60c5';                        case 'ChatGPT\u4f7f\u7528\u7684\u6280\u672f':                            return name+'<br>\u70b9\u51fb\u8be6\u60c5';                        case 'ChatGPT\u53ef\u4ee5\u5b8c\u6210\u7684\u4efb\u52a1':                            return name+'<br>\u70b9\u51fb\u8be6\u60c5';                        default:                            return name;                    };                }                ,
         "textStyle": {
-            "fontSize": 14
+            "fontSize": 24
         },
         "borderWidth": 0,
         "padding": 5
@@ -1178,13 +1180,16 @@
         }
     ]
 };
-        chart_fa2077a75c764dea9ad0d8966e523070.setOption(option_fa2077a75c764dea9ad0d8966e523070);
+        chart_658ff756983148da912fae3a22d7202b.setOption(option_658ff756983148da912fae3a22d7202b);
     </script>
-                <div id="da2efe04d99a419093601816b6aae647" class="chart-container" style="width:1600px; height:900px;"></div>
+                <div id="96f845a59e02466d94752e890aa8f4ff" class="chart-container" style="width:1600px; height:800px;"></div>
     <script>
-        var chart_da2efe04d99a419093601816b6aae647 = echarts.init(
-            document.getElementById('da2efe04d99a419093601816b6aae647'), 'white', {renderer: 'canvas'});
-        var option_da2efe04d99a419093601816b6aae647 = {
+        var chart_96f845a59e02466d94752e890aa8f4ff = echarts.init(
+            document.getElementById('96f845a59e02466d94752e890aa8f4ff'), 'white', {renderer: 'canvas'});
+            
+            
+            
+        var option_96f845a59e02466d94752e890aa8f4ff = {
     "animation": true,
     "animationThreshold": 2000,
     "animationDuration": 1000,
@@ -1221,7 +1226,7 @@
                     ]
                 },
                 {
-                    "value": 40,
+                    "value": 41,
                     "name": "ChatGPT\u7f3a\u70b9",
                     "children": [
                         {
@@ -1299,12 +1304,13 @@
         "axisPointer": {
             "type": "line"
         },
-        "showContent": false,
+        "showContent": true,
         "alwaysShowContent": false,
         "showDelay": 0,
         "hideDelay": 100,
+        "formatter":                     function(x){                        name=x.name;                        console.log(name);                        switch (name)                        {                            case 'ChatGPT\u4f18\u70b9':                                return name+'<br>\u70b9\u51fb\u8be6\u60c5';                            case 'ChatGPT\u7f3a\u70b9':                                return name+'<br>\u70b9\u51fb\u8be6\u60c5';                            default:                                return name;                        };                    }                ,
         "textStyle": {
-            "fontSize": 14
+            "fontSize": 24
         },
         "borderWidth": 0,
         "padding": 5
@@ -1443,7 +1449,7 @@
         }
     ]
 };
-        chart_da2efe04d99a419093601816b6aae647.setOption(option_da2efe04d99a419093601816b6aae647);
+        chart_96f845a59e02466d94752e890aa8f4ff.setOption(option_96f845a59e02466d94752e890aa8f4ff);
     </script>
     </div>
 

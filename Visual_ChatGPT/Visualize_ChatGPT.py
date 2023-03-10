@@ -1,5 +1,6 @@
 from pyecharts import options as opts
 from pyecharts.charts import Sankey,TreeMap,Tab,Line,Grid
+from pyecharts.commons.utils import JsCode
 from pyecharts.globals import ThemeType
 
 
@@ -43,10 +44,17 @@ def History(width,height):
             label_opts=opts.LabelOpts(position="right"),
         )
         .set_series_opts(
-            opts.TextStyleOpts(font_size=16), )
+            opts.TextStyleOpts(font_size=20), )
         .set_global_opts(
             # 浮动提示框设置
-            tooltip_opts=opts.TooltipOpts(is_show_content=False),
+            tooltip_opts=opts.TooltipOpts(textstyle_opts=opts.TextStyleOpts(font_size=24),
+                formatter=
+                JsCode("""
+        function(x){
+            return x.name
+        }
+    """)
+            ),
             # 标题设置
             title_opts=opts.TitleOpts(title="ChatGPT",title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
             # 右上角贴图
@@ -168,7 +176,6 @@ def Parameters(width,height):
             grid_opts=opts.GridOpts(pos_left="5%", pos_right="4%", pos_bottom="5%"),
         )
     )
-
     return c
 
 def Character(width,height):
@@ -227,7 +234,26 @@ def Character(width,height):
             opts.TextStyleOpts(font_size=25),)
         .set_global_opts(
             # 浮动提示框设置
-            tooltip_opts=opts.TooltipOpts(is_show_content=False),
+            tooltip_opts=opts.TooltipOpts(textstyle_opts=opts.TextStyleOpts(font_size=24),
+                formatter=
+                JsCode("""
+                function(x){
+                    name=x.name;
+                    console.log(name);
+                    switch (name)
+                    {
+                        case 'ChatGPT特点':
+                            return name+'<br>点击详情';
+                        case 'ChatGPT使用的技术':
+                            return name+'<br>点击详情';
+                        case 'ChatGPT可以完成的任务':
+                            return name+'<br>点击详情';
+                        default:
+                            return name;
+                    };
+                }
+                """)
+            ),
             # 标题设置
             title_opts=opts.TitleOpts(title="ChatGPT",pos_left="leafDepth",
                                     title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
@@ -274,7 +300,7 @@ def BadBenifits(width,height):
      },
     # ChatGPT缺点
     {
-        "value": 40,
+        "value": 41,
         "name": "ChatGPT缺点",
         "children": [
             {"value": 40, "name": "数据偏差",},
@@ -295,7 +321,24 @@ def BadBenifits(width,height):
         )
         .set_global_opts(
             # 浮动提示框设置
-            tooltip_opts=opts.TooltipOpts(is_show_content=False),
+            tooltip_opts=opts.TooltipOpts(textstyle_opts=opts.TextStyleOpts(font_size=24),
+                formatter=
+                JsCode("""
+                    function(x){
+                        name=x.name;
+                        console.log(name);
+                        switch (name)
+                        {
+                            case 'ChatGPT优点':
+                                return name+'<br>点击详情';
+                            case 'ChatGPT缺点':
+                                return name+'<br>点击详情';
+                            default:
+                                return name;
+                        };
+                    }
+                """)
+            ),
             # 标题设置
             title_opts=opts.TitleOpts(title="ChatGPT",pos_left="leafDepth",
                                   title_textstyle_opts=opts.TextStyleOpts(font_size=30)),
@@ -325,13 +368,17 @@ def BadBenifits(width,height):
             chart=c,
             grid_opts=opts.GridOpts(pos_left="5%", pos_right="4%", pos_bottom="5%"),
         )
+        .add_js_funcs("""
+            
+            """)
     )
     return c
 
 
+
 tab=Tab(page_title='ChatGPT')
 width="1600px"
-height="900px"
+height="800px"
 tab.add(History(width,height),'ChatGPT的演化历史')
 tab.add(Parameters(width,height),'GPT家族的参数演化')
 tab.add(Character(width,height),'ChatGPT的功能及其特征')
