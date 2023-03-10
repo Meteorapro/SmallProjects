@@ -1,7 +1,7 @@
 # Visual_ChatGPT 开发日志
 > 该项目目前已经暂停更新
 
-使用工具：Pycharm、Pycharts
+使用工具：Pycharm、Pyecharts
 ## 1.0
     该文件中有三个图：
         ChatGPT的历史-桑基图
